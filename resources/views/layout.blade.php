@@ -66,7 +66,7 @@
         @yield("content")
     </main>
 
-    <footer class="navbar sticky-bottom bg-dark bg-body-tertiary">
+    <footer class="navbar sticky-bottom bg-dark bg-body-tertiary" style="margin-top: 1rem">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"></a>
             <div>

@@ -25,8 +25,7 @@ class HomePageController extends Controller
     //  return view("welcome",['blogs' => $blogs]);
 
         $infos = HomepageModel::latest()
-                                ->take(1)
-                                ->get();                            
-        return view("welcome",["infos" => $infos,"blogs"=>$blogs]);                            
+                               ->first();                          
+        return view("welcome",["blogs"=>$blogs])->with("info",$infos);                            
     }
 }

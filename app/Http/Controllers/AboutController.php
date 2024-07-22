@@ -8,7 +8,9 @@ use App\Models\AboutModel;
 class AboutController extends Controller
 {
     public function getaboutdata(){ // About tablosundaki verileri çeker ve about viewa gönderir 
-        $aboutdatas = AboutModel::all();
-        return view("about",compact("aboutdatas"));
+        $aboutdata = AboutModel::latest()
+                                  ->first();
+        
+        return view("about")->with("aboutdata",$aboutdata);
       }
 }

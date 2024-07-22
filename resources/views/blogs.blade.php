@@ -12,16 +12,20 @@
     @foreach ($blogsarray as $blog)
     <div class="col-lg-4 col-md-6" style="margin-bottom: 1rem">
       <div class="card h-100 border-0 shadow-sm rounded-3">
-        <a href="{{ route('blog-details-route', $blog['id']) }}">
-          <img src="/assets/images/{{ $blog['image'] }}" class="card-img-top" alt="{{ $blog['title'] }}">
+        <a href="{{ route('blog-details-route', $blog->id) }}">
+          <img src="/assets/images/{{ $blog->image }}" class="card-img-top" alt="{{ $blog->title }}">
         </a>
         <div class="card-body">
-          <a href="{{ route('blog-details-route', $blog['id']) }}" class="card-title text-dark text-decoration-none h4">{{ $blog['title'] }}</a>
-          <p class="card-text text-muted mt-2">{{ $blog['summary'] }}</p>
+          <a href="{{ route('blog-details-route', $blog->id) }}" class="card-title text-dark text-decoration-none h4">{{ $blog->title }}</a>
+          <p class="card-text text-muted mt-2">{{ $blog->summary }}</p>
         </div>
       </div>
     </div>
     @endforeach
+    <div class="pagination d-flex justify-content-center">
+      {{ $blogsarray->links() }}
+    </div>
+    
   </div>
 </div>
 @endsection

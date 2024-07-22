@@ -57,25 +57,23 @@
                     <h2>İletişim Bilgileri</h2>
                   </div>
                   <div class="content">
-                    @foreach ($infosarray as $info)
                     <ul style="list-style: none; padding: 0;">
                       <li style="margin-bottom: 10px;">
-                        <h5><i class="bi bi-telephone" style="margin-right: 10px;"></i> {{ $info->phonenumber }}</h5>
+                        <h5><i class="bi bi-telephone" style="margin-right: 10px;"></i> {{ $contactinfo->phonenumber }}</h5>
                       </li>
                       <li style="margin-bottom: 10px;">
-                        <h5><i class="bi bi-printer" style="margin-right: 10px;"></i> {{ $info->faxnumber }}</h5>
+                        <h5><i class="bi bi-printer" style="margin-right: 10px;"></i> {{ $contactinfo->faxnumber }}</h5>
                       </li>
                       <li style="margin-bottom: 10px;">
-                        <h5><i class="bi bi-envelope" style="margin-right: 10px;"></i> {{ $info->firstmail }}</h5>
+                        <h5><i class="bi bi-envelope" style="margin-right: 10px;"></i> {{ $contactinfo->firstmail }}</h5>
                       </li>
                       <li style="margin-bottom: 10px;">
-                        <h5><i class="bi bi-envelope" style="margin-right: 10px;"></i> {{ $info->secondmail }}</h5>
+                        <h5><i class="bi bi-envelope" style="margin-right: 10px;"></i> {{ $contactinfo->secondmail }}</h5>
                       </li>
                       <li style="margin-bottom: 10px;">
-                        <h5><i class="bi bi-building" style="margin-right: 10px;"></i> {{ $info->address }}</h5>
+                        <h5><i class="bi bi-building" style="margin-right: 10px;"></i> {{ $contactinfo->address }}</h5>
                       </li>
                     </ul>
-                    @endforeach
                   </div>
                 </div>
               </div>

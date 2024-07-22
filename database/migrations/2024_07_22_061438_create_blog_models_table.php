@@ -21,7 +21,7 @@ class CreateBlogModelsTable extends Migration
             $table->string('image');
             $table->string('writer');
             $table->unsignedBigInteger('categoryid');
-            //$table->string("urllink
+            $table->string("urllink");
             $table->timestamps();
             
             $table->foreign('categoryid')->references('id')->on('category');

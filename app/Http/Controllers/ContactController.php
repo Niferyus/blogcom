@@ -8,7 +8,8 @@ use App\Models\ContactModel;
 class ContactController extends Controller
 {
     public function getContactInfo(){
-        $contactinfos = ContactModel::all();
-        return view("contact",['infosarray'=>$contactinfos]);
+        $contactinfos = ContactModel::latest()
+                                     ->first();
+        return view("contact")->with("contactinfo",$contactinfos);
     }
 }
