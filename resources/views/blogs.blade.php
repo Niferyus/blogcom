@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid p-3" style="background-color: bisque;">
   <div class="d-flex justify-content-center align-items-center" style="height: 80px;">
-    <p class="h4 mb-0">Bloglar</p>
+    <p class="font-size: 2.5rem; h1 mb-0">Bloglar</p>
   </div>
 </div>
 

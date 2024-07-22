@@ -5,6 +5,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomePageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +18,7 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', [BlogController::class, 'showBlogs']);
+Route::get('/',[HomePageController::class,'gethomepageinfo']);
 
 Route::get('/blogs',[BlogController::class,'showallBlogs']);
 

@@ -11,14 +11,6 @@ class BlogController extends Controller
         $blogs = BlogModel::all();
         return $blogs;
     }
-    
-     public function showBlogs(){
-        //   $blogs = BlogModel::all();
-        $blogs = BlogModel::latest()
-                                ->take(6)
-                                ->get();
-         return view("welcome",['blogs' => $blogs]);
-     }
 
     public function showallBlogs(){
         return view("blogs",['blogsarray' => $this->getdata()]);

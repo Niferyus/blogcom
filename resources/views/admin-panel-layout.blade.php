@@ -1,4 +1,26 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Admin Panel</title>
+    <style>
+        body {
+            display: flex;
+        }
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+    </style>
+</head>
 <body>
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary sidebar">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
@@ -34,35 +56,8 @@
         </ul>
         <hr>
       </div>
-      <div class="content" id="content">
-        <h1>Welcome to the Admin Panel</h1>
-        <p>Select an option from the sidebar to get started.</p>
-      </div>
 
-    <script>
-        function loadContent(page) {
-            const content = document.getElementById('content');
-            let htmlContent = '';
-
-            switch(page) {
-                case 'home':
-                    htmlContent = '<h1>Home</h1><p>This is the home page.</p>';
-                    break;
-                case 'dashboard':
-                    htmlContent = '<h1>Dashboard</h1><p>This is the dashboard page.</p>';
-                    break;
-                case 'orders':
-                    htmlContent = '<h1>Orders</h1><p>This is the orders page.</p>';
-                    break;
-                case 'products':
-                    htmlContent = '<h1>Products</h1><p>This is the products page.</p>';
-                    break;
-                default:
-                    htmlContent = '<h1>Welcome to the Admin Panel</h1><p>Select an option from the sidebar to get started.</p>';
-            }
-
-            content.innerHTML = htmlContent;
-        }
-    </script>
-</body>
-</html>
+      <content>
+        
+      </content>
+</body>  
