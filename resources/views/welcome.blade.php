@@ -18,7 +18,7 @@
           <img src="/assets/images/{{ $blog->image }}" class="card-img-top" alt="{{ $blog->title }}" style="object-fit: cover; height: 200px;">
           <div class="card-body d-flex flex-column">
             <a href="{{ route('blog-details-route', $blog->id) }}" class="card-title text-dark text-decoration-none h4">{{ $blog->title }}</a>
-            <p class="card-text">{{ $blog->summary }}</p>
+            <p class="card-text">{{ Str::limit($blog->text, 100, '...') }}</p>
             <a href="{{  route('blog-details-route', $blog->id)  }}" class="btn btn-primary mt-auto">Devamını Oku</a>
           </div>
         </div>

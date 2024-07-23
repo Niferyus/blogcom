@@ -29,5 +29,9 @@ Route::get('/contact',[ContactController::class,'getContactInfo']);
 Route::get('/blog-details/{id}',[BlogController::class, 'getblogdetails'])->name('blog-details-route');
 
 Route::get('/admin-panel',function(){
-    return view('admin-panel');
+    return view('Admin/admin-panel');
+});
+
+Route::get('/admin-panel/admin-about',function(){
+    return view('Admin/admin-about-edit');
 });
