@@ -13,7 +13,7 @@ class BlogController extends Controller
     }
 
     public function showallBlogs(){
-        $blogs = BlogModel::paginate(9);
+        $blogs = BlogModel::paginate(6);
         return view("blogs",['blogsarray' => $blogs]);
      }
      

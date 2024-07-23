@@ -7,8 +7,13 @@
   </div>
 </div>
 
+<form class="d-flex justify-content-center" role="search" style="width: 50%">
+  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
 <div class="container mt-4">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" >
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     @foreach ($blogsarray as $blog)
     <div class="col-lg-4 col-md-6" style="margin-bottom: 1rem">
       <div class="card h-100 border-0 shadow-sm rounded-3">
@@ -22,10 +27,10 @@
       </div>
     </div>
     @endforeach
-    <div class="pagination d-flex justify-content-center">
-      {{ $blogsarray->links() }}
-    </div>
-    
+  </div>
+  
+  <div class="d-flex justify-content-center mt-4">
+    {{ $blogsarray->links('pagination::bootstrap-4') }}
   </div>
 </div>
 @endsection

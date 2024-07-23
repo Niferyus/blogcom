@@ -14,28 +14,9 @@
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/user-layout.css">
     {{-- <link rel="stylesheet" href="assets/css/templatemo-stand-blog.css"> --}}
     {{-- <link rel="stylesheet" href="assets/css/owl.css"> --}}
-
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        main {
-            flex: 1;
-        }
-        footer {
-            height: 5rem;
-            background-color: #343a40;
-            color: white;
-        }
-        .contact-us {
-            margin-top: 20px;
-            padding: 20px;
-        }
-    </style>
 </head>
 <body>
 
