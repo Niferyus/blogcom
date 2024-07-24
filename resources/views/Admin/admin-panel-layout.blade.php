@@ -18,28 +18,32 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-              Anasayfa
-            </a>
+            <p class="nav-link dropdown-toggle bi" data-bs-toggle="dropdown" role="button" aria-expanded="false">Anasayfa</p>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Listeleme</a></li>
+                <li><a class="dropdown-item" href="#">Yeni Oluştur</a></li>
+            </ul>
           </li>
           <li>
-            <a href="#" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-              Bloglar
-            </a>
+            <p class="nav-link dropdown-toggle bi" data-bs-toggle="dropdown" role="button" aria-expanded="false">Bloglar</p>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Listeleme</a></li>
+                <li><a class="dropdown-item" href="#">Yeni Oluştur</a></li>
+            </ul>
           </li>
-          <li>
-            <a href="/admin-panel/admin-about" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-              Hakkında
-            </a>
+            <li class="dropdown">
+              <p class="nav-link dropdown-toggle bi" data-bs-toggle="dropdown" role="button" aria-expanded="false">Hakkında</p>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/admin-panel/admin-about-list">Listeleme</a></li>
+                <li><a class="dropdown-item" href="/admin-panel/admin-about-create">Yeni Oluştur</a></li>
+              </ul>
           </li>
-          <li>
-            <a href="#" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-              İletişim
-            </a>
+          <li class="dropdown">
+            <p class="nav-link dropdown-toggle bi" data-bs-toggle="dropdown" role="button" aria-expanded="false">İletişim</p>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Listeleme</a></li>
+                <li><a class="dropdown-item" href="#">Yeni Oluştur</a></li>
+            </ul>
           </li>
         </ul>
         <hr>

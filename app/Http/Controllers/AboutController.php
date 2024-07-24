@@ -13,4 +13,33 @@ class AboutController extends Controller
         
         return view("about")->with("aboutdata",$aboutdata);
       }
+
+    public function aboutlist(){
+      $infos = AboutModel::all();
+      return view("Admin/admin-about-list",["infos" => $infos]);
+    }
+    
+    public function aboutedit($id){
+      $info = AboutModel::where("id",$id)
+                                  ->first();
+      return view("Admin/admin-about-edit")->with("info",$info);
+    }
+    
+    //-post
+    //add
+    //resim- metin
+
+
+    //-get
+    //update
+    //id
+
+    //post
+    //update
+    //id-resim-metin
+    //
+
+    //get
+    //delete
+    //id
 }

@@ -32,6 +32,10 @@ Route::get('/admin-panel',function(){
     return view('Admin/admin-panel');
 });
 
-Route::get('/admin-panel/admin-about',function(){
-    return view('Admin/admin-about-edit');
+Route::get('/admin-panel/admin-about-list',[AboutController::class,'aboutlist']);
+
+Route::get('/admin-panel/admin-about-create',function(){
+    return view('Admin/admin-about-create');
 });
+
+Route::get('/admin-about-edit/{id}',[AboutController::class,'aboutedit'])->name('about-edit') ;
