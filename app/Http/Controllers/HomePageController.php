@@ -28,4 +28,6 @@ class HomePageController extends Controller
                                ->first();                          
         return view("welcome",["blogs"=>$blogs])->with("info",$infos);                            
     }
+
+    
 }

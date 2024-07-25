@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form name="createaboutform" id="createaboutform" method="POST" action="/admin-about-create">
+<form name="createaboutform" id="createaboutform" method="POST" action="/admin-panel/admin-about-create">
     @csrf
     <div class="container">
         <div class="form-group">

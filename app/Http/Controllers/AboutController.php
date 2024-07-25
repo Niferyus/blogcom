@@ -23,24 +23,27 @@ class AboutController extends Controller
     public function aboutedit($id){
       $info = AboutModel::where("id",$id)
                                   ->first();
-      if($info){
+      if($info != null){
         return view("Admin/admin-about-edit")->with("info",$info);
       }
       
     }
 
     public function createabout(Request $request){
-      $about = new AboutModel;
-      $about->abouttext = $request->abouttext;
-      $about->aboutimg = $request->aboutimg;
-      $about->save();
-      return redirect('admin-panel/admin-about-list');
+      if($request->isMethod('post')){
+
+        $about = new AboutModel;
+        $about->abouttext = $request->abouttext;
+        $about->aboutimg = $request->aboutimg;
+        $about->save();
+        return redirect('admin-panel/admin-about-list');
+      }
     }
     
     public function deleteabout($id){
       $about = AboutModel::where("id",$id)
                                 ->first();
-      if ($about) {
+      if ($about != null) {
         $about->delete();
       }
       return redirect('admin-panel/admin-about-list');
@@ -49,10 +52,12 @@ class AboutController extends Controller
     public function updateabout(Request $request){
       $about = AboutModel::where("id",$request->id)
                                           ->first();
-      $about->abouttext = $request->abouttext;
-      $about->aboutimg = $request->aboutimg;
-      $about->save();
-      return redirect('admin-panel/admin-about-list');                      
+      if($request->isMethod('post') || $about != null){
+        $about->abouttext = $request->abouttext;
+        $about->aboutimg = $request->aboutimg;
+        $about->save();
+        return redirect('admin-panel/admin-about-list');                      
+      }
     }
 
     public function activateselectedabout($id){
