@@ -38,4 +38,12 @@ Route::get('/admin-panel/admin-about-create',function(){
     return view('Admin/admin-about-create');
 });
 
-Route::get('/admin-about-edit/{id}',[AboutController::class,'aboutedit'])->name('about-edit') ;
+Route::get('/admin-panel/admin-about-edit/{id}',[AboutController::class,'aboutedit'])->name('about-edit') ;
+
+Route::post('/admin-about-create',[AboutController::class,'createabout']);
+
+Route::post('/admin-panel/admin-about-edit/{id}',[AboutController::class,'updateabout']);
+
+Route::delete('/admin-panel/admin-about-list/{id}',[AboutController::class,'deleteabout'])->name('about-delete');
+
+Route::get('/admin-panel/admin-about-list/{id}',[AboutController::class,'activateselectedabout'])->name('activate-about');

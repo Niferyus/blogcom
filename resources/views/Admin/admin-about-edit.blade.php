@@ -2,6 +2,8 @@
 
 @section('content')
 
+<form action="{{ url('/admin-panel/admin-about-edit/' .$info->id) }}" method="POST">
+  @csrf
   <div class="container">
     <div class="form-group">
         <label for="abouttext" class="form-label">Hakkında Metin</label>
@@ -13,5 +15,5 @@
     </div>
       <button type="submit" class="btn btn-primary">Kaydet</button>
 </div> 
-
+</form>
 @endsection
