@@ -23,7 +23,10 @@ class AboutController extends Controller
     public function aboutedit($id){
       $info = AboutModel::where("id",$id)
                                   ->first();
-      return view("Admin/admin-about-edit")->with("info",$info);
+      if($info){
+        return view("Admin/admin-about-edit")->with("info",$info);
+      }
+      
     }
 
     public function createabout(Request $request){

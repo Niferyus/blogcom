@@ -28,22 +28,26 @@ Route::get('/contact',[ContactController::class,'getContactInfo']);
 
 Route::get('/blog-details/{id}',[BlogController::class, 'getblogdetails'])->name('blog-details-route');
 
-Route::get('/admin-panel',function(){
-    return view('Admin/admin-panel');
+Route::group(['prefix' => '/admin-panel'], function(){
+
+    Route::get('',function(){
+        return view('Admin/admin-panel');    
+    });   
+
+    Route::get('/admin-about-list',[AboutController::class,'aboutlist']);
+
+    Route::get('/admin-about-create',function(){
+        return view('Admin/admin-about-create');
+    });
+
+    Route::get('/admin-about-edit/{id}',[AboutController::class,'aboutedit'])->name('about-edit') ;
+
+    Route::post('/admin-about-create',[AboutController::class,'createabout']);
+
+    Route::post('/admin-about-edit/{id}',[AboutController::class,'updateabout']);
+
+    Route::delete('/admin-about-list/{id}',[AboutController::class,'deleteabout'])->name('about-delete');
+
+    Route::get('/admin-about-list/{id}',[AboutController::class,'activateselectedabout'])->name('activate-about');
 });
 
-Route::get('/admin-panel/admin-about-list',[AboutController::class,'aboutlist']);
-
-Route::get('/admin-panel/admin-about-create',function(){
-    return view('Admin/admin-about-create');
-});
-
-Route::get('/admin-panel/admin-about-edit/{id}',[AboutController::class,'aboutedit'])->name('about-edit') ;
-
-Route::post('/admin-about-create',[AboutController::class,'createabout']);
-
-Route::post('/admin-panel/admin-about-edit/{id}',[AboutController::class,'updateabout']);
-
-Route::delete('/admin-panel/admin-about-list/{id}',[AboutController::class,'deleteabout'])->name('about-delete');
-
-Route::get('/admin-panel/admin-about-list/{id}',[AboutController::class,'activateselectedabout'])->name('activate-about');
