@@ -51,11 +51,11 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#"></a>
             <div>
-                @foreach ($socialmedialinks as $socialmedialink )  
+                {{-- @foreach ($socialmedialinks as $socialmedialink )  
                     <a style="margin-right: 0.5rem; font-size:1.5rem" href="{{ $socialmedialink->facebooklink }}" ><i class="bi bi-facebook"></i></a>
                     <a style="margin-right: 0.5rem; font-size:1.5rem" href="{{ $socialmedialink->twitterlink }}"><i class="bi bi-twitter"></i></a>
                     <a style="font-size:1.5rem" href="{{ $socialmedialink->instagramlink }}"><i class="bi bi-instagram"></i></a>
-                @endforeach  
+                @endforeach   --}}
             </div>
         </div>
     </footer> 

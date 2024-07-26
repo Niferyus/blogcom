@@ -15,9 +15,9 @@ class CreateContactModelsTable extends Migration
     {
         Schema::create('contactinfo', function (Blueprint $table) {
             $table->id();
-            $table->string("phonenumber")->nullable();
+            $table->string("phonenumber");
             $table->string("faxnumber")->nullable();
-            $table->string("firstmail")->nullable();
+            $table->string("firstmail");
             $table->string("secondmail")->nullable();
             $table->string("address");
             $table->timestamps();

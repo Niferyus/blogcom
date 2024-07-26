@@ -45,7 +45,8 @@ class BlogController extends Controller
     public function editblogs($id){
         $blog = BlogModel::where("id",$id)
                                     ->first();
-        return view('Admin.admin-blogs-edit')->with("blog",$blog);
+        $category = CategoryModel::all();
+        return view('Admin.admin-blogs-edit')->with("blog",$blog)->with("categorys",$category);
 
     }
 

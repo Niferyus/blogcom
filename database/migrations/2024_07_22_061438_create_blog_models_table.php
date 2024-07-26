@@ -16,12 +16,11 @@ class CreateBlogModelsTable extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('summary',100);
             $table->longText('text');
             $table->string('image');
             $table->string('writer');
             $table->unsignedBigInteger('categoryid');
-            $table->string("urllink");
+            $table->string("urllink")->nullable();
             $table->timestamps();
             
             $table->foreign('categoryid')->references('id')->on('category');

@@ -16,7 +16,7 @@ class CreateHomepageModelsTable extends Migration
         Schema::create('homepage', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('text')->nullable();
+            $table->string('text');
             $table->string('image');
             $table->timestamps();
         });

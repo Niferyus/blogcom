@@ -2,28 +2,28 @@
 
 @section('content')
 
-    <form action="/admin-panel/admin-blogs-create" method="POST">
+    <form name="createblogform" id="createblogform" action="/admin-panel/admin-blogs-create" method="POST">
         @csrf
         <div class="container">
             <div class="form-group">
-                <label for="blogtitle" class="form-label">Blog Başlığı</label>
-                <textarea name="blogtitle" id="blogtitle" class="form-control" cols="30" rows="2"></textarea>
+                <label for="title" class="form-label">Blog Başlığı</label>
+                <textarea name="title" id="title" class="form-control" cols="30" rows="2"></textarea>
             </div>
             <div class="form-group">
-                <label for="blogtext" class="form-label">Blog Metini</label>
-                <textarea name="blogtext" id="blogtext" class="form-control" cols="30" rows="10"></textarea>
+                <label for="text" class="form-label">Blog Metini</label>
+                <textarea name="text" id="text" class="form-control" cols="30" rows="10"></textarea>
             </div>
             <div class="form-group">
-                <label for="blogimage" class="form-label">Blog Resim</label>
-                <textarea name="blogimage" id="blogimage" class="form-control" cols="30" rows="1"></textarea>
+                <label for="image" class="form-label">Blog Resim</label>
+                <textarea name="image" id="image" class="form-control" cols="30" rows="1"></textarea>
             </div>
             <div class="form-group">
-                <label for="blogwriter" class="form-label">Blog Yazarı</label>
-                <textarea name="blogwriter" id="blogwriter" class="form-control" cols="30" rows="1"></textarea>
+                <label for="writer" class="form-label">Blog Yazarı</label>
+                <textarea name="writer" id="writer" class="form-control" cols="30" rows="1"></textarea>
             </div>
-                <label for="categoryname" class="form-label">Kategori</label>            
-                <select name="categoryname" id="categoryname" class="form-select" aria-label="Default select example">
-                    <option selected>Seçme menüsü</option>
+                <label for="categoryid" class="form-label">Kategori</label>            
+                <select name="categoryid" id="categoryid" class="form-select" aria-label="Default select example">
+                    <option selected>Kategoriler</option>
                     @php
                         $index = 1;
                     @endphp
