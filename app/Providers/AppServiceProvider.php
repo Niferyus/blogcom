@@ -24,9 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $socialMediaController = new SocialMediaController();
-        // $socialmedialinks = $socialMediaController::getlinks();
+         $socialMediaController = new SocialMediaController();
+         $socialmedialinks = $socialMediaController::getlinks();
 
-        // View::share('socialmedialinks',$socialmedialinks);
+         View::share('socialmedialinks',$socialmedialinks);
     }
 }

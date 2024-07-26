@@ -34,7 +34,7 @@
                     @endphp
                     @endforeach
                 </select>
-            <button type="submit" class="btn btn-primary">Kaydet</button>
+            <button style="margin-top: 1rem" type="submit" class="btn btn-primary">Kaydet</button>
         </div> 
     </form>
 @endsection

@@ -61,5 +61,13 @@ Route::group(['prefix' => '/admin-panel'], function(){
     Route::post('/admin-blogs-edit/{id}',[BlogController::class,'updateblog']);
 
     Route::delete('/admin-blogs-list/{id}',[BlogController::class,'deleteblog'])->name('blogs-delete');
+
+    Route::get('/admin-contact-list',[ContactController::class, 'listContact']);
+
+    Route::delete('/admin-contact-list/{id}',[ContactController::class,'deletecontact'])->name('contact-delete');
+
+    Route::get('/admin-contact-edit/{id}',[ContactController::class,'editcontact'])->name('contact-edit');
+
+    Route::post('/admin-contact-edit/{id}',[ContactController::class,'updateContact']);
 });
 
