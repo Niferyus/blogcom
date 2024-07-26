@@ -27,8 +27,8 @@
           <li>
             <p class="nav-link dropdown-toggle bi" data-bs-toggle="dropdown" role="button" aria-expanded="false">Bloglar</p>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Listeleme</a></li>
-                <li><a class="dropdown-item" href="#">Yeni Oluştur</a></li>
+                <li><a class="dropdown-item" href="/admin-panel/admin-blogs-list">Listeleme</a></li>
+                <li><a class="dropdown-item" href="/admin-panel/admin-blogs-create">Yeni Oluştur</a></li>
             </ul>
           </li>
             <li class="dropdown">

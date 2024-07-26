@@ -29,5 +29,12 @@ class HomePageController extends Controller
         return view("welcome",["blogs"=>$blogs])->with("info",$infos);                            
     }
 
-    
+    // public function homepagelist(){
+    //     $info = HomepageModel::all();
+    //     return view("Admin/admin-homepage",["infos"=>$info]);
+    // }
+
+    // public function createhomepage(){
+
+    // }
 }

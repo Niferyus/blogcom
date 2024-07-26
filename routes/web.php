@@ -49,5 +49,17 @@ Route::group(['prefix' => '/admin-panel'], function(){
     Route::delete('/admin-about-list/{id}',[AboutController::class,'deleteabout'])->name('about-delete');
 
     Route::get('/admin-about-list/{id}',[AboutController::class,'activateselectedabout'])->name('activate-about');
+
+    Route::get('/admin-blogs-create',[BlogController::class,'getcategories']);
+
+    Route::post('/admin-blogs-create',[BlogController::class,'createblog']);
+
+    Route::get('/admin-blogs-list',[BlogController::class,'listblog']);
+
+    Route::get('/admin-blogs-edit/{id}',[BlogController::class,'editblogs'])->name('blogs-edit');
+
+    Route::post('/admin-blogs-edit/{id}',[BlogController::class,'updateblog']);
+
+    Route::delete('/admin-blogs-list/{id}',[BlogController::class,'deleteblog'])->name('blogs-delete');
 });
 
