@@ -2,7 +2,7 @@
 
 @section('content')
 
-{{-- <table class="table">
+ <table class="table">
     <thead>
       <tr>
         <th scope="col">id</th>
@@ -18,29 +18,23 @@
         <tr>
             <th scope="row">{{ $info->id }}</th>
             <td>{{ $info->title }}</td>
-            <td>{{ Str::limit($info->text, 10, '...') }}</td>
-            <td>{{ $info->aboutimg }}</td>
-            <td>
-              <form action="{{ route('about-delete', $info->id) }}" method="POST" onsubmit="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">
+            <td>{{ $info->text, }}</td>
+            <td>{{ $info->image }}</td>
+             <td>
+               <form action="{{ route('homepage-delete', $info->id) }}" method="POST" onsubmit="return confirm('Bu kaydı silmek istediğinize emin misiniz?');">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Sil</button>
-              </form>
-            </td>
-            <td>
-              <a class="btn btn-primary" href="{{ route('about-edit', $info->id) }}">Düzenle</a>
-            </td>
-            <td>
-            <form action="{{ route('activate-about', $info->id) }}" method="GET" onsubmit="return confirm('Bu seçeneği aktif etmek istediğinize emin misiniz')">
-              @csrf
-              <button type="submit" class="btn btn-success">Aktif Et</button>
-            </form>
-          </td>
+              </form> 
+            </td> 
+             <td>
+              <a class="btn btn-primary" href="{{ route('homepage-update', $info->id) }}">Düzenle</a>
+            </td> 
         </tr>      
         @endforeach
       
     </tbody>
   </table>
- --}}
+ 
 
 @endsection

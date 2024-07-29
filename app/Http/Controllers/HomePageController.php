@@ -22,19 +22,59 @@ class HomePageController extends Controller
         $blogs = BlogModel::latest()
                                 ->take(6)
                                 ->get();
-    //  return view("welcome",['blogs' => $blogs]);
 
         $infos = HomepageModel::latest()
                                ->first();                          
         return view("welcome",["blogs"=>$blogs])->with("info",$infos);                            
     }
 
-    // public function homepagelist(){
-    //     $info = HomepageModel::all();
-    //     return view("Admin/admin-homepage",["infos"=>$info]);
-    // }
+    public function getcreatehomepage(){
+        return view("Admin/admin-homepage-create");
+      }
 
-    // public function createhomepage(){
+    public function createhomepage(Request $request){
+        if($request->isMethod('post')){
+            $homepage = new HomepageModel;
+            $homepage->title = $request->title;
+            $homepage->text = $request->text;
+            $homepage->image = $request->image;
+            $homepage->save();
+            return redirect("admin-panel/admin-homepage-list");
+        }
+    }
 
-    // }
-}
+     public function homepagelist(){
+         $info = HomepageModel::all();
+         return view("Admin/admin-homepage-list",["infos"=>$info]);
+     }
+
+     public function homepageedit($id){
+        $info = HomepageModel::where("id",$id)
+                                    ->first();
+        if($info != null){
+            return view("Admin.admin-homepage-edit")->with("infos",$info);
+        }                            
+     }
+
+     public function homepageupdate(Request $request){
+        $info = HomepageModel::where("id",$request->id)
+                                            ->first();
+        if($request->isMethod("post") && $info != null){
+            $info->title = $request->title;
+            $info->text = $request->text;
+            $info->image = $request->image;
+            $info->save();
+            return redirect('admin-panel/admin-homepage-list');
+        }                                    
+     }
+
+     public function deletehomepage($id){
+        $info = HomepageModel::where("id",$id)
+                                        ->first();
+        if($info != null){
+            $info->delete();
+            return redirect('admin-panel/admin-homepage-list');
+        }                                
+     }
+}   
+

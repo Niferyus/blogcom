@@ -69,5 +69,21 @@ Route::group(['prefix' => '/admin-panel'], function(){
     Route::get('/admin-contact-edit/{id}',[ContactController::class,'editcontact'])->name('contact-edit');
 
     Route::post('/admin-contact-edit/{id}',[ContactController::class,'updateContact']);
+
+    Route::get('/admin-homepage-list',[HomePageController::class,'homepagelist']);
+
+    Route::get('/admin-homepage-edit/{id}',[HomePageController::Class,'homepageedit'])->name('homepage-update');
+
+    Route::post('/admin-homepage-edit/{id}',[HomePageController::class,'homepageupdate']);
+
+    Route::delete('/admin-homepage-list/{id}',[HomePageController::class,'deletehomepage'])->name('homepage-delete');
+
+    Route::get('/admin-homepage-create',[HomePageController::class,'getcreatehomepage']);
+
+    Route::post('/admin-homepage-create',[HomePageController::class,'createhomepage']);
+
+    Route::get('/admin-contact-create',[ContactController::class,'getcontactcreate']);
+
+    Route::post('/admin-contact-create',[ContactController::class,'createcontact']);
 });
 

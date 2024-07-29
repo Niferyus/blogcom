@@ -20,8 +20,8 @@
           <li class="nav-item">
             <p class="nav-link dropdown-toggle bi" data-bs-toggle="dropdown" role="button" aria-expanded="false">Anasayfa</p>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Listeleme</a></li>
-                <li><a class="dropdown-item" href="#">Yeni Oluştur</a></li>
+                <li><a class="dropdown-item" href="/admin-panel/admin-homepage-list">Listeleme</a></li>
+                <li><a class="dropdown-item" href="/admin-panel/admin-homepage-create">Yeni Oluştur</a></li>
             </ul>
           </li>
           <li>
@@ -42,7 +42,7 @@
             <p class="nav-link dropdown-toggle bi" data-bs-toggle="dropdown" role="button" aria-expanded="false">İletişim</p>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/admin-panel/admin-contact-list">Listeleme</a></li>
-                <li><a class="dropdown-item" href="#">Yeni Oluştur</a></li>
+                <li><a class="dropdown-item" href="/admin-panel/admin-contact-create">Yeni Oluştur</a></li>
             </ul>
           </li>
         </ul>

@@ -48,4 +48,22 @@ class ContactController extends Controller
             return view("Admin.admin-contact-edit")->with("contactinfo",$contact);
         }
     }
+
+    public function getcontactcreate(){
+        return view('Admin.admin-contact-create');
+    }
+
+    public function createcontact(Request $request){
+        if($request->isMethod('post')){
+            $conatact = new ContactModel;
+            $homepage->phonenumber = $request->phonenumber;
+            $homepage->faxnumber = $request->faxnumber;
+            $homepage->firstmail = $request->firstmail;
+            $homepage->secondmail = $request->secondmail;
+            $homepage->address = $request->address;
+            $homepage->save();
+            return redirect("admin-panel/admin-homepage-list");
+        }
+    }
+
 }
