@@ -71,10 +71,14 @@ class HomePageController extends Controller
      public function deletehomepage($id){
         $info = HomepageModel::where("id",$id)
                                         ->first();
-        if($info != null){
+        if($info != null && HomepageModel::count() > 1){
             $info->delete();
-            return redirect('admin-panel/admin-homepage-list');
-        }                                
+        }else {
+          
+            return redirect('admin-panel/admin-about-list')->with('error', 'Kayıt silinemedi çünkü yalnızca 1 kayıt kaldı.');
+        }
+    
+        return redirect('admin-panel/admin-about-list')->with('success', 'Kayıt başarıyla silindi.');                              
      }
 }   
 

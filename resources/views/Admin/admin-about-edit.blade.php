@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="{{ url('/admin-panel/admin-about-edit/' .$info->id) }}" method="POST">
+<form action="{{ url('/admin-panel/admin-about-edit/' .$info->id) }}" method="POST" onsubmit="return validateform()">
   @csrf
   <div class="container">
     <div class="form-group">
@@ -16,4 +16,16 @@
       <button type="submit" class="btn btn-primary">Kaydet</button>
 </div> 
 </form>
+
+<script>
+  function validateform(){
+    const abouttext = document.getElementById('abouttext').value.trim();
+    
+    if(!abouttext){
+      alert("Lütfen hakkında metin giriniz.");
+      return false;
+    }
+  }
+</script>
+
 @endsection

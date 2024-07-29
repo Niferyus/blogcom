@@ -2,6 +2,18 @@
 
 @section('content')
 
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
 <table class="table">
     <thead>
       <tr>
@@ -34,12 +46,6 @@
             <td>
               <a class="btn btn-primary" href="{{ route('blogs-edit', $blog->id) }}">Düzenle</a>
             </td>
-            {{-- <td>
-            <form action="{{ route('activate-about', $info->id) }}" method="GET" onsubmit="return confirm('Bu seçeneği aktif etmek istediğinize emin misiniz')">
-              @csrf
-              <button type="submit" class="btn btn-success">Aktif Et</button>
-            </form>
-          </td> --}}
         </tr>      
         @endforeach
       

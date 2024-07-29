@@ -21,10 +21,15 @@ class ContactController extends Controller
     public function deletecontact($id){
         $info = ContactModel::where("id",$id)
                                     ->first();
-        if($info != null){
+        if($info != null && ContactModel::count() > 1){
             $info->delete();
         }
-        return redirect("admin-panel/admin-contact-list");                            
+        else {
+          
+            return redirect('admin-panel/admin-contact-list')->with('error', 'Kayıt silinemedi çünkü yalnızca 1 kayıt kaldı.');
+        }
+    
+        return redirect('admin-panel/admin-contact-list')->with('success', 'Kayıt başarıyla silindi.');                            
     }
 
     public function updateContact(Request $request){
@@ -55,14 +60,14 @@ class ContactController extends Controller
 
     public function createcontact(Request $request){
         if($request->isMethod('post')){
-            $conatact = new ContactModel;
-            $homepage->phonenumber = $request->phonenumber;
-            $homepage->faxnumber = $request->faxnumber;
-            $homepage->firstmail = $request->firstmail;
-            $homepage->secondmail = $request->secondmail;
-            $homepage->address = $request->address;
-            $homepage->save();
-            return redirect("admin-panel/admin-homepage-list");
+            $contact = new ContactModel;
+            $contact->phonenumber = $request->phonenumber;
+            $contact->faxnumber = $request->faxnumber;
+            $contact->firstmail = $request->firstmail;
+            $contact->secondmail = $request->secondmail;
+            $contact->address = $request->address;
+            $contact->save();
+            return redirect("admin-panel/admin-contact-list");
         }
     }
 

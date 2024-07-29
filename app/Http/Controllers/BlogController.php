@@ -68,7 +68,11 @@ class BlogController extends Controller
         if($blog != null){
             $blog->delete();
         }
-        return redirect('admin-panel/admin-blogs-list');
+        else {
+            return redirect('admin-panel/admin-blogs-list')->with('error', 'Kayıt silinemedi.');
+        }
+    
+        return redirect('admin-panel/admin-blogs-list')->with('success', 'Kayıt başarıyla silindi.');
     }
 
     public function getcategories(){
