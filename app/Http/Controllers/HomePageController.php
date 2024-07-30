@@ -75,10 +75,10 @@ class HomePageController extends Controller
             $info->delete();
         }else {
           
-            return redirect('admin-panel/admin-about-list')->with('error', 'Kayıt silinemedi çünkü yalnızca 1 kayıt kaldı.');
+            return redirect('admin-panel/admin-homepage-list')->with('error', 'Kayıt silinemedi çünkü yalnızca 1 kayıt kaldı.');
         }
     
-        return redirect('admin-panel/admin-about-list')->with('success', 'Kayıt başarıyla silindi.');                              
+        return redirect('admin-panel/admin-homepage-list')->with('success', 'Kayıt başarıyla silindi.');                              
      }
 }   
 

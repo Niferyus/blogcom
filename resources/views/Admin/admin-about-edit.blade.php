@@ -60,24 +60,23 @@ Yeni eklenen resmi kontrol etmek için butona basınız.
     }
   }
   
-  $(".images img").click(function(){
-  $("#full-image").attr("src", $(this).attr("src"));
-  $('#image-viewer').show();
-});
+  document.querySelector(".images img").addEventListener("click", function() {
+      document.getElementById("full-image").src = this.src;
+      document.getElementById('image-viewer').style.display = 'block';
+    });
 
-$("#image-viewer .close").click(function(){
-  $('#image-viewer').hide();
-});
+    document.querySelector("#image-viewer .close").addEventListener("click", function() {
+      document.getElementById('image-viewer').style.display = 'none';
+    });
 
 function checkit(){
   const aboutimg = document.getElementById("aboutimg");
   const image = document.getElementById("imageview");
-  if(aboutimg.value === ''){
 
-  }
-  else{
+  if(aboutimg.value !== ''){
     image.src = "/assets/images/" + aboutimg.value;
   }
+
 }
 </script>
 

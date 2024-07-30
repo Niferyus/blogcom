@@ -22,7 +22,7 @@
         </a>
         <div class="card-body">
           <a href="{{ route('blog-details-route', $blog->id) }}" class="card-title text-dark text-decoration-none h4">{{ $blog->title }}</a>
-          <p class="card-text">{{ Str::limit($blog->text, 100, '...') }}</p>
+          <p class="card-text">{{!! Str::limit($blog->text, 100, '...') !!}}</p>
         </div>
       </div>
     </div>

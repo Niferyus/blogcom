@@ -8,11 +8,7 @@ use App\Models\CategoryModel;
 
 class BlogController extends Controller
 {
-    public function getdata(){
-        $blogs = BlogModel::all();
-        return $blogs;
-    }
-
+    
     public function showallBlogs(){
         $blogs = BlogModel::paginate(6);
         return view("blogs",['blogsarray' => $blogs]);
@@ -20,8 +16,12 @@ class BlogController extends Controller
      
     public function getblogdetails($id){
         $blogVeri = BlogModel::where("id", $id)->first();
+
+        if ($blogVeri != null)
         return view('blog-details',
         ['blog'=>$blogVeri]); 
+        else
+        return redirect('blogs'); 
      }
      
     public function createblog(Request $request){

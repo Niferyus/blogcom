@@ -19,13 +19,13 @@
 
 <script>
      function validateForm() {
-         const aboutText = document.getElementById('abouttext').value.trim();
-         const aboutImg = document.getElementById('aboutimg').value.trim();
+        const aboutImg = document.getElementById('aboutimg').value.trim();
+        const aboutText = CKEDITOR.instances.abouttext.getBody().getText().trim();
 
-         if (!aboutText) {
-             alert('Lütfen hakkında metni girin.');
-             return false;
-         }
+        if (!aboutText) {
+            alert('Lütfen hakkında metni girin.');
+            return false;
+        }
 
          if (!aboutImg) {
              alert('Lütfen bir resim seçin.');

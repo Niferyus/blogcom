@@ -2,12 +2,12 @@
 
 @section('content')
        
-    <form name="createblogform" id="createblogform" action="/admin-panel/admin-blogs-create" method="POST" onsubmit="return validateform()">
+    <form name="createblogform" id="createblogform" action="/admin-panel/admin-blogs-create" method="POST" enctype="multipart/form-data" onsubmit="return validateform()">
         @csrf
         <div class="container">
             <div class="form-group">
                 <label for="title" class="form-label">Blog Başlığı</label>
-                <textarea name="title" id="title" class="form-control ckeditor" cols="30" rows="2" required></textarea>
+                <textarea name="title" id="title" class="form-control" cols="30" rows="2" required></textarea>
             </div>
             <div class="form-group">
                 <label for="text" class="form-label">Blog Metini</label>
@@ -21,7 +21,7 @@
 
             <div class="form-group">
                 <label for="writer" class="form-label">Blog Yazarı</label>
-                <textarea name="writer" id="writer" class="form-control ckeditor" cols="30" rows="1" required></textarea>
+                <textarea name="writer" id="writer" class="form-control" cols="30" rows="1" required></textarea>
             </div>
                 <label for="categoryid" class="form-label">Kategori</label>            
                 <select name="categoryid" id="categoryid" class="form-select" aria-label="Default select example">
@@ -60,7 +60,12 @@
 
         function validateform(){
             const image = document.getElementById("image").value.trim();
-       
+            const blogText = CKEDITOR.instances.text.getData().trim();
+            
+            if(!blogText){
+                alert('Lütfen metni girin.');
+                return false;
+            }
             if(!image){
                 alert("Lütfen bir resim seçiniz.")
                 return false;

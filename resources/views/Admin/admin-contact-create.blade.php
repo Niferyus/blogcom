@@ -7,11 +7,11 @@
     <div class="container">
         <div class="form-group">
             <label for="phonenumber" class="form-label">Telefon Numarası</label>
-            <textarea name="phonenumber" id="phonenumber" class="form-control" pattern="\d*" cols="30" rows="2" required></textarea>
+            <input name="phonenumber" id="phonenumber" class="form-control" pattern="\d*" required>
         </div>
         <div class="form-group">
-            <label for="faxnumber" class="form-label">Fax Numaras</label>
-            <textarea name="faxnumber" id="faxnumber" class="form-control" pattern="\d*" cols="30" rows="10" ></textarea>
+            <label for="faxnumber" class="form-label">Fax Numarası</label>
+            <input name="faxnumber" id="faxnumber" class="form-control" pattern="\d*" ></input>
         </div>
         <div class="form-group">
             <label for="firstmail" class="form-label">Mail</label>
