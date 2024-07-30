@@ -7,7 +7,7 @@
     <div class="container">
         <div class="form-group">
             <label for="abouttext" class="form-label">Hakkında Metin</label>
-            <textarea name="abouttext" id="abouttext" class="form-control" cols="30" rows="10" required></textarea>
+            <textarea name="abouttext" id="abouttext" cols="30" rows="10" class="ckeditor" required></textarea>
         </div>
         <div class="input-group">
             <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onchange="updateImageName()">
