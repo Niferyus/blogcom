@@ -41,12 +41,6 @@
             <td>
               <a class="btn btn-primary" href="{{ route('about-edit', $info->id) }}">Düzenle</a>
             </td>
-            <td>
-            <form action="{{ route('activate-about', $info->id) }}" method="GET" onsubmit="return confirm('Bu seçeneği aktif etmek istediğinize emin misiniz?');">
-              @csrf
-              <button type="submit" class="btn btn-success">Aktif Et</button>
-            </form>
-          </td>
         </tr>      
         @endforeach
     </tbody>

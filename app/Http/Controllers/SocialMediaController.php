@@ -7,7 +7,15 @@ use App\Models\SocialMediaModel;
 
 
 class SocialMediaController extends Controller
-{
+{   
+    /**
+     * Bütün kayıtları alır ve çıktı verir
+     *
+     *
+     * @param none
+     * @return links
+     * @throws conditon
+     **/
     public function getlinks(){
         $socialmedialinks = SocialMediaModel::all();
         return $socialmedialinks;

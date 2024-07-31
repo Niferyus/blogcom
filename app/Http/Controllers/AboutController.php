@@ -9,40 +9,100 @@ use App\Models\AboutModel;
 
 class AboutController extends Controller
 {
-    public function getaboutdata(){ // About tablosundaki verileri çeker ve about viewa gönderir 
+    /**
+     * Sayfada göstermek için about modelindeki son eklenen kaydı alır 
+     * null kontrolü yapar about viewına gönderir 
+     *
+     * 
+     * @param none
+     * @return viewa son kaydı gönderir
+     * @throws none
+     **/
+    public function getaboutdata(){ 
       $aboutdata = AboutModel::latest()
                               ->first();
       if($aboutdata == null){
-        return redirect();
+        return abort(404);
       }
-      return view("about")->with("aboutdata",$aboutdata);
+      else{
+        return view("about")->with("aboutdata",$aboutdata);
+      }
+      
     }
 
+     /**
+     * About modelindeki bütün kayıtları çeker 
+     * about list viewına gönderir
+     * 
+     *
+     * @param none
+     * @return about
+     * @throws none
+     **/
     public function aboutlist(){
       $infos = AboutModel::all();
-      return view("Admin/admin-about-list",["infos" => $infos]);
+      if($infos == null){
+        return abort(404);
+      }
+      else{
+        return view("Admin/admin-about-list",["infos" => $infos]);
+      }
     }
     
+    /**
+     * Aldığı idli kaydı bulur null olup olmadığını kontrol eder ve 
+     * Düzenleme sayfasına gönderir 
+     *      
+     * @param id
+     * @return about
+     * @throws none
+     **/
     public function aboutedit($id){
       $info = AboutModel::where("id",$id)
                                   ->first();
       if($info != null){
         return view("Admin/admin-about-edit")->with("info",$info);
       }
+      else{
+        abort(404);
+      }
       
     }
 
+    /**
+     * Admin panelinde yeni aboutu oluşturur.  
+     *
+     *
+     * @param requet
+     * @return aboutlist viewına döner
+     * @throws none
+     **/
     public function createabout(Request $request){
       if($request->isMethod('post')){
 
         $about = new AboutModel;
         $about->abouttext = $request->abouttext;
-        $about->aboutimg = $request->aboutimg;
+  
+        if ($request->hasFile('aboutimg')) {
+          $image = $request->file('aboutimg');
+          $imageName = time() . '.' . $image->getClientOriginalExtension();
+          $image->move(public_path('assets/images'), $imageName);
+          $about->image = $imageName;
+      }
+
         $about->save();
         return redirect('admin-panel/admin-about-list');
       }
     }
     
+    /**
+     * Aldığı idli kaydı bulur null olup olmadığını kontrol eder
+     * Sonuca göre hata yada olumlu mesajı döndürür
+     *
+     * @param id
+     * @return error yada olumlu mesaj
+     * @throws none
+     **/
     public function deleteabout($id){
       $about = AboutModel::where("id", $id)->first();
       
@@ -56,25 +116,30 @@ class AboutController extends Controller
       return redirect('admin-panel/admin-about-list')->with('success', 'Kayıt başarıyla silindi.');
   }
   
-
+    /**
+     * Aldığı idli kaydı bulur değişiklikleri yapar ve kaydeder
+     *
+     * @param request
+     * @return about list
+     * @throws none
+     **/        
     public function updateabout(Request $request){
       $about = AboutModel::where("id",$request->id)
                                           ->first();
       if($request->isMethod('post') || $about != null){
         $about->abouttext = $request->abouttext;
         $about->aboutimg = $request->aboutimg;
+
+        if ($request->hasFile('aboutimg')) {
+          $image = $request->file('aboutimg');
+          $imageName = time() . '.' . $image->getClientOriginalExtension();
+          $image->move(public_path('assets/images'), $imageName);
+          $blog->image = $imageName;
+      }
+
         $about->save();
         return redirect('admin-panel/admin-about-list');                      
       }
-    }
-
-    public function activateselectedabout($id){
-      $about = AboutModel::where("id",$id)
-                                    ->first();
-      $about->updated_at = Carbon::now();
-      $about->save();
-      return redirect('admin-panel/admin-about-list');
-
     }
 
 }

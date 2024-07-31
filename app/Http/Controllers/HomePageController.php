@@ -24,14 +24,34 @@ class HomePageController extends Controller
                                 ->get();
 
         $infos = HomepageModel::latest()
-                               ->first();                          
+                               ->first();
+        if($blogs == null && $infos == null){
+            abort(404);
+        }
+        else                
         return view("welcome",["blogs"=>$blogs])->with("info",$infos);                            
     }
 
+    /**
+     * Yeni kayıt oluşturma viewının görüntülenmesi için çalışır
+     *  
+     *
+     * @param none
+     * @return create view
+     * @throws none
+     **/
     public function getcreatehomepage(){
         return view("Admin/admin-homepage-create");
       }
 
+    /**
+     * Yeni kayıt oluşturur
+     *  
+     *
+     * @param request
+     * @return contact list
+     * @throws none
+     **/
     public function createhomepage(Request $request){
         if($request->isMethod('post')){
             $homepage = new HomepageModel;
@@ -43,22 +63,54 @@ class HomePageController extends Controller
         }
     }
 
+    /**
+     * Bütün kayıtları alır liste viewına gönderir
+     *  
+     *
+     * @param none
+     * @return homepage list
+     * @throws none
+     **/
      public function homepagelist(){
          $info = HomepageModel::all();
+         if($info == null){
+            abort(404);
+         }
+         else
          return view("Admin/admin-homepage-list",["infos"=>$info]);
      }
 
+     /**
+     * Çektiği idye ait kaydın düzenleme sayfasını getirmeyi sağlar
+     *  
+     *
+     * @param id
+     * @return homepage edit
+     * @throws none
+     **/
      public function homepageedit($id){
         $info = HomepageModel::where("id",$id)
                                     ->first();
         if($info != null){
             return view("Admin.admin-homepage-edit")->with("infos",$info);
+        }
+        else{
+            abort(404);
         }                            
      }
 
+     /**
+     * Çektiği idye ait kaydın değerlerini değiştirir ve kaydeder
+     *  
+     *
+     * @param request
+     * @return homepage list
+     * @throws none
+     **/
      public function homepageupdate(Request $request){
         $info = HomepageModel::where("id",$request->id)
-                                            ->first();
+        ->first();
+        
         if($request->isMethod("post") && $info != null){
             $info->title = $request->title;
             $info->text = $request->text;
@@ -68,6 +120,14 @@ class HomePageController extends Controller
         }                                    
      }
 
+     /**
+     * Çektiği idye ait kaydı siler
+     *  
+     *
+     * @param id
+     * @return error yada olumlu yanıt
+     * @throws none
+     **/
      public function deletehomepage($id){
         $info = HomepageModel::where("id",$id)
                                         ->first();
