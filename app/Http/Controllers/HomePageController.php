@@ -49,7 +49,7 @@ class HomePageController extends Controller
      *  
      *
      * @param request
-     * @return contact list
+     * @return homepage list
      * @throws none
      **/
     public function createhomepage(Request $request){
@@ -57,7 +57,14 @@ class HomePageController extends Controller
             $homepage = new HomepageModel;
             $homepage->title = $request->title;
             $homepage->text = $request->text;
-            $homepage->image = $request->image;
+
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = $image->getClientOriginalName(); 
+                $image->move(public_path('assets/images'), $imageName); 
+                $homepage->image = $imageName;
+            }
+
             $homepage->save();
             return redirect("admin-panel/admin-homepage-list");
         }
@@ -114,7 +121,14 @@ class HomePageController extends Controller
         if($request->isMethod("post") && $info != null){
             $info->title = $request->title;
             $info->text = $request->text;
-            $info->image = $request->image;
+            
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $imageName = $image->getClientOriginalName(); 
+                $image->move(public_path('assets/images'), $imageName); 
+                $info->image = $imageName;
+            }
+
             $info->save();
             return redirect('admin-panel/admin-homepage-list');
         }                                    

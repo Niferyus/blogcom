@@ -32,7 +32,7 @@
         <tr>
             <th scope="row">{{ $blog->id }}</th>
             <td>{{ $blog->title }}</td>
-            <td>{{ Str::limit($blog->text, 10, '...') }}</td>
+            <td>{!! Str::limit($blog->text, 10, '...') !!}</td>
             <td>{{ $blog->image }}</td>
             <td>{{ $blog->writer }}</td>
             <td>{{ $blog->categoryid }}</td>

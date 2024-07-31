@@ -17,7 +17,7 @@ class BlogController extends Controller
      * @throws none
      **/
     public function showallBlogs(){
-        $blogs = BlogModel::paginate(6);
+        $blogs = BlogModel::latest()->paginate(6);
         if($blogs == null){
             abort(404);            
         }
@@ -65,14 +65,16 @@ class BlogController extends Controller
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('assets/images'), $imageName);
+                $imageName = $image->getClientOriginalName(); 
+                $image->move(public_path('assets/images'), $imageName); 
                 $blog->image = $imageName;
             }
 
             $blog->save();
-
             return redirect('admin-panel/admin-blogs-list');
+        }
+        else{
+            abort(404);
         }
     }
     
@@ -85,7 +87,7 @@ class BlogController extends Controller
      * @throws none
      **/
     public function listblog(){
-        $blogs = BlogModel::all();
+        $blogs = BlogModel::latest()->get();
         if($blogs == null){
             abort(404);
         }
@@ -137,8 +139,8 @@ class BlogController extends Controller
 
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('assets/images'), $imageName);
+                $imageName = $image->getClientOriginalName(); 
+                $image->move(public_path('assets/images'), $imageName); 
                 $blog->image = $imageName;
             }
 

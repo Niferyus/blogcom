@@ -7,20 +7,20 @@
     <div class="container">
         <div class="form-group">
             <label for="title" class="form-label">Blog Başlığı</label>
-            <textarea name="title" id="title" class="form-control" cols="30" rows="2" required>{{ $blog->title }}</textarea>
+            <input name="title" id="title" class="form-control" maxlength="58" minlength="5" required value="{{ $blog->title }}"></input>
         </div>
         <div class="form-group">
             <label for="text" class="form-label">Blog Metini</label>
-            <textarea name="text" id="text" class="form-control ckeditor" cols="30" rows="10" required>{{ $blog->text }}</textarea>
+            <textarea name="text" id="text" class="form-control ckeditor" cols="30" rows="10" minlength="100" required>{{ $blog->text }}</textarea>
         </div>
         <div class="input-group">
             <label for="inputGroupFile04" class="form-label">Blog Resmi</label>
-            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onchange="updateImageName()">
+            <input type="file" class="form-control" id="inputGroupFile04" accept="image/*" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onchange="updateImageName()">
         </div>
         <input type="hidden" name="image" id="image" value="{{ $blog->image }}">
         <div class="form-group">
             <label for="writer" class="form-label">Blog Yazarı</label>
-            <textarea name="writer" id="writer" class="form-control" cols="30" rows="1" required>{{ $blog->writer }}</textarea>
+            <input name="writer" id="writer" class="form-control" maxlength="20" min="2" required value="{{ $blog->writer }}"></input>
         </div>
             <label for="categoryid" class="form-label">Kategori</label>            
             <select name="categoryid" id="categoryid" class="form-select" aria-label="Default select example">

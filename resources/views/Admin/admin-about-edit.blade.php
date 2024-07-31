@@ -2,16 +2,16 @@
 
 @section('content')
 
-<form action="{{ url('/admin-panel/admin-about-edit/' .$info->id) }}" method="POST" onsubmit="return validateform()">
+<form action="{{ url('/admin-panel/admin-about-edit/' .$info->id) }}" method="POST" onsubmit="return validateform()" enctype="multipart/form-data">
   @csrf
   <div class="container">
     <div class="form-group">
         <label for="abouttext" class="form-label">Hakkında Metin</label>
-        <textarea name="abouttext" id="abouttext" class="form-control ckeditor" cols="30" rows="10" required>{{ $info->abouttext }}</textarea>
+        <textarea name="abouttext" id="abouttext" class="form-control ckeditor" minlength="100" cols="30" rows="10" required>{!! $info->abouttext !!}</textarea>
     </div>
     <div class="input-group">
       <label for="inputGroupFile04" class="form-label">Hakkında Resim</label>
-      <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onchange="updateImageName()">
+      <input type="file" class="form-control" id="inputGroupFile04" accept="image/*" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onchange="updateImageName()">
   </div>
   <input type="hidden" name="aboutimg" id="aboutimg" value="{{ $info->aboutimg }}">
       <button  type="submit" class="btn btn-primary" style="margin-top: 1rem">Kaydet</button>
@@ -35,7 +35,13 @@ Yeni eklenen resmi kontrol etmek için butona basınız.
 <script>
   function validateform(){
     const aboutimage = document.getElementById('aboutimg').value.trim();
-    
+    const aboutText = CKEDITOR.instances.abouttext.getData().trim();
+
+    if (!aboutText) {
+            alert('Lütfen hakkında metni girin.');
+            return false;
+    }
+
     if(!aboutimage){
       alert("Lütfen resim seçiniz");
       return false;
@@ -48,17 +54,10 @@ Yeni eklenen resmi kontrol etmek için butona basınız.
 
     if(file){
      const filename = file.name;
-     const fileExtension = filename.split('.').pop().toLowerCase();
-
-    if(fileExtension === 'jpg'){
-      document.getElementById('aboutimg').value = filename;
-    }
-    else{
-      alert("Dosya uzantısı jpg değil");
-      fileinput.value = "";
-    }
+     document.getElementById('aboutimg').value = filename;
     }
   }
+  
   
   document.querySelector(".images img").addEventListener("click", function() {
       document.getElementById("full-image").src = this.src;
@@ -79,5 +78,6 @@ function checkit(){
 
 }
 </script>
+
 
 @endsection

@@ -77,23 +77,31 @@ class AboutController extends Controller
      * @return aboutlist viewına döner
      * @throws none
      **/
-    public function createabout(Request $request){
-      if($request->isMethod('post')){
-
-        $about = new AboutModel;
-        $about->abouttext = $request->abouttext;
+    public function createabout(Request $request) {
+      if ($request->isMethod('post')) {
+        
+          $about = new AboutModel;
+          $about->abouttext = $request->abouttext;
   
-        if ($request->hasFile('aboutimg')) {
-          $image = $request->file('aboutimg');
-          $imageName = time() . '.' . $image->getClientOriginalExtension();
-          $image->move(public_path('assets/images'), $imageName);
-          $about->image = $imageName;
+          if ($request->hasFile('aboutimg')) {
+              $image = $request->file('aboutimg');
+              $imageName = $image->getClientOriginalName();
+              $image->move(public_path('assets/images'), $imageName);
+              $about->aboutimg = $imageName;
+          }
+  
+          $about->save();
+          return redirect('admin-panel/admin-about-list');
+      } else {
+          abort(404);
       }
+  }
 
-        $about->save();
-        return redirect('admin-panel/admin-about-list');
-      }
-    }
+  // AboutModel::create(
+  //   [
+  //     'image' => $request->abouttext;
+  //   ]
+  // )
     
     /**
      * Aldığı idli kaydı bulur null olup olmadığını kontrol eder

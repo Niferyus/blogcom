@@ -2,21 +2,21 @@
 
 @section('content')
 
-<form action="{{ url('/admin-panel/admin-homepage-edit/' .$infos->id) }}" method="POST" onsubmit="return validateform()">
+<form name="createhomepageform" id="createhomepageform" action="{{ url('/admin-panel/admin-homepage-edit/' .$infos->id) }}" method="POST" enctype="multipart/form-data" onsubmit="return validateform()">
     @csrf
     <div class="container">
       <div class="form-group">
           <label for="title" class="form-label">Anasayfa Başlık</label>
-          <textarea name="title" id="title" class="form-control" cols="30" rows="10" required>{{ $infos->title }}</textarea>
+          <input name="title" id="title" class="form-control" cols="30" rows="10" required value="{{ $infos->title }}"></input>
       </div>
       <div class="container">
         <div class="form-group">
             <label for="text" class="form-label">Anasayfa Metin</label>
-            <textarea name="text" id="text" class="form-control" cols="30" rows="10" required>{{ $infos->text }}</textarea>
+            <input name="text" id="text" class="form-control" cols="30" rows="10" required value="{{ $infos->text }}"></input>
         </div>
         <div class="input-group">
           <label for="inputGroupFile04" class="form-label">Anasayfa Resim</label>
-          <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onchange="updateImageName()">
+          <input type="file" class="form-control" id="inputGroupFile04" accept="image/*" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onchange="updateImageName()">
       </div>
       <input type="hidden" name="image" id="image" value="{{ $infos->image }}">
 
@@ -54,14 +54,7 @@
 
       if (file) {
         const filename = file.name;
-        const fileExtension = filename.split('.').pop().toLowerCase();
-
-        if (fileExtension === 'jpg') {
-          document.getElementById('image').value = filename;
-        } else {
-          alert("Dosya uzantısı jpg değil");
-          fileinput.value = "";
-        }
+        document.getElementById('image').value = filename;
       }
     }
 

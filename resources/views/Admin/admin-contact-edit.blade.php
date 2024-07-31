@@ -7,23 +7,23 @@
     <div class="container">
         <div class="form-group">
             <label for="phonenumber" class="form-label">Telefon Numarası</label>
-            <textarea name="phonenumber" id="phonenumber" class="form-control" cols="30" rows="2" pattern="\d*" required>{{ $contactinfo->phonenumber }}</textarea>
+            <input name="phonenumber" id="phonenumber" class="form-control" pattern="\d*" required value="{{ $contactinfo->phonenumber }}"></input>
         </div>
         <div class="form-group">
             <label for="faxnumber" class="form-label">Fax Numaras</label>
-            <textarea name="faxnumber" id="faxnumber" class="form-control" cols="30" rows="10" pattern="\d*" >{{ $contactinfo->faxnumber }}</textarea>
+            <input name="faxnumber" id="faxnumber" class="form-control" pattern="\d*" value="{{ $contactinfo->faxnumber }}" ></input>
         </div>
         <div class="form-group">
             <label for="firstmail" class="form-label">Mail</label>
-            <textarea name="firstmail" id="firstmail" class="form-control" cols="30" rows="1" required>{{ $contactinfo->firstmail }}</textarea>
+            <input name="firstmail" id="firstmail" class="form-control" required value="{{ $contactinfo->firstmail }}"></input>
         </div>
         <div class="form-group">
             <label for="secondmail" class="form-label">2.Mail</label>
-            <textarea name="secondmail" id="secondmail" class="form-control" cols="30" rows="1">{{ $contactinfo->secondmail }}</textarea>
+            <input name="secondmail" id="secondmail" class="form-control" value="{{ $contactinfo->secondmail }}"></input>
         </div>
         <div class="form-group">
             <label for="address" class="form-label">Adres</label>
-            <textarea name="address" id="address" class="form-control" cols="30" rows="1" required>{{ $contactinfo->address }}</textarea>
+            <input name="address" id="address" class="form-control" required value="{{ $contactinfo->address }}"></input>
         </div>
             
         <button style="margin-top: 1rem" type="submit" class="btn btn-primary">Kaydet</button>

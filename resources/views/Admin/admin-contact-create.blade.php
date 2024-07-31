@@ -15,15 +15,15 @@
         </div>
         <div class="form-group">
             <label for="firstmail" class="form-label">Mail</label>
-            <textarea name="firstmail" id="firstmail" class="form-control" cols="30" rows="1" required></textarea>
+            <input name="firstmail" id="firstmail" class="form-control" cols="30" rows="1" required></input>
         </div>
         <div class="form-group">
             <label for="secondmail" class="form-label">2.Mail</label>
-            <textarea name="secondmail" id="secondmail" class="form-control" cols="30" rows="1" ></textarea>
+            <input name="secondmail" id="secondmail" class="form-control" cols="30" rows="1" ></input>
         </div>
         <div class="form-group">
             <label for="address" class="form-label">Adres</label>
-            <textarea name="address" id="address" class="form-control" cols="30" rows="1" required></textarea>
+            <input name="address" id="address" class="form-control" cols="30" rows="1" required></input>
         </div>
             
         <button style="margin-top: 1rem" type="submit" class="btn btn-primary">Kaydet</button>
