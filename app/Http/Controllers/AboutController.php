@@ -73,35 +73,40 @@ class AboutController extends Controller
      * Admin panelinde yeni aboutu oluşturur.  
      *
      *
-     * @param requet
+     * @param request
      * @return aboutlist viewına döner
      * @throws none
      **/
     public function createabout(Request $request) {
       if ($request->isMethod('post')) {
         
-          $about = new AboutModel;
-          $about->abouttext = $request->abouttext;
-  
+        $request->validate([
+          'abouttext' => 'required|string',
+          'aboutimg' => 'required' 
+        ]);
+      
+
+          $imageName = null;
           if ($request->hasFile('aboutimg')) {
               $image = $request->file('aboutimg');
               $imageName = $image->getClientOriginalName();
               $image->move(public_path('assets/images'), $imageName);
-              $about->aboutimg = $imageName;
           }
-  
-          $about->save();
-          return redirect('admin-panel/admin-about-list');
-      } else {
-          abort(404);
-      }
-  }
 
-  // AboutModel::create(
-  //   [
-  //     'image' => $request->abouttext;
-  //   ]
-  // )
+          $about = AboutModel::create(
+            [
+          'abouttext' => $request->abouttext,
+          'aboutimg' => $imageName,
+            ]
+          );
+          
+          return redirect('admin-panel/admin-about-list')->with('success', 'Kayıt başarıyla oluşturuldu!');
+      }
+       else {
+        return redirect('admin-panel/admin-about-list')->with('error', 'Kayıt oluşturulamadı');
+      }
+    }
+
     
     /**
      * Aldığı idli kaydı bulur null olup olmadığını kontrol eder
@@ -151,3 +156,4 @@ class AboutController extends Controller
     }
 
 }
+

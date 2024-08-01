@@ -54,19 +54,31 @@ class HomePageController extends Controller
      **/
     public function createhomepage(Request $request){
         if($request->isMethod('post')){
-            $homepage = new HomepageModel;
-            $homepage->title = $request->title;
-            $homepage->text = $request->text;
 
+            $request->validate([
+                'title' => 'required|string|min:3',
+                'text' => 'required|string|min:5',
+                'image' => 'required',
+            ]);
+
+            $imageName = null;
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $imageName = $image->getClientOriginalName(); 
                 $image->move(public_path('assets/images'), $imageName); 
-                $homepage->image = $imageName;
             }
 
-            $homepage->save();
-            return redirect("admin-panel/admin-homepage-list");
+            $homepage = HomepageModel::create(
+                [
+                    'title' => $request->title,
+                    'text' => $request->text,
+                    'image' => $imageName,
+                ]
+            );
+            return redirect('admin-panel/admin-homepage-list')->with('success', 'Kayıt başarıyla oluşturuldu!');
+        }
+        else{
+            return redirect('admin-panel/admin-homepage-list')->with('error', 'Kayıt oluşturulamadı');
         }
     }
 

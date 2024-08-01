@@ -126,14 +126,28 @@ class ContactController extends Controller
      **/
     public function createcontact(Request $request){
         if($request->isMethod('post')){
-            $contact = new ContactModel;
-            $contact->phonenumber = $request->phonenumber;
-            $contact->faxnumber = $request->faxnumber;
-            $contact->firstmail = $request->firstmail;
-            $contact->secondmail = $request->secondmail;
-            $contact->address = $request->address;
-            $contact->save();
-            return redirect("admin-panel/admin-contact-list");
+
+            $request->validate([
+                'phonenumber' => 'required|numeric',
+                'faxnumber' => 'nullable|numeric',
+                'firstmail' => 'required|email',
+                'secondmail' => 'nullable|email',
+                'address' => 'required|string',
+            ]);
+
+            $contact = ContactModel::create(
+                [
+                    'phonenumber' => $request->phonenumber,
+                    'faxnumber' => $request->faxnumber,
+                    'firstmail' => $request->firstmail,
+                    'secondmail' => $request->secondmail,
+                    'address' => $request->address,
+                ]
+                );
+                return redirect('admin-panel/admin-contact-list')->with('success', 'Kayıt başarıyla oluşturuldu!');         
+        }
+        else{
+            return redirect('admin-panel/admin-contact-list')->with('error', 'Kayıt başarıyla oluşturuldu!');
         }
     }
 

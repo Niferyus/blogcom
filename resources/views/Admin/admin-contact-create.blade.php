@@ -7,19 +7,19 @@
     <div class="container">
         <div class="form-group">
             <label for="phonenumber" class="form-label">Telefon Numarası</label>
-            <input name="phonenumber" id="phonenumber" class="form-control" pattern="\d*" required>
+            <input type="tel" name="phonenumber" id="phonenumber" class="form-control" pattern="\d*" required>
         </div>
         <div class="form-group">
             <label for="faxnumber" class="form-label">Fax Numarası</label>
-            <input name="faxnumber" id="faxnumber" class="form-control" pattern="\d*" ></input>
+            <input type="tel" name="faxnumber" id="faxnumber" class="form-control" pattern="\d*" ></input>
         </div>
         <div class="form-group">
             <label for="firstmail" class="form-label">Mail</label>
-            <input name="firstmail" id="firstmail" class="form-control" cols="30" rows="1" required></input>
+            <input type="email" name="firstmail" id="firstmail" class="form-control" cols="30" rows="1" required></input>
         </div>
         <div class="form-group">
             <label for="secondmail" class="form-label">2.Mail</label>
-            <input name="secondmail" id="secondmail" class="form-control" cols="30" rows="1" ></input>
+            <input type="email" name="secondmail" id="secondmail" class="form-control" cols="30" rows="1" ></input>
         </div>
         <div class="form-group">
             <label for="address" class="form-label">Adres</label>

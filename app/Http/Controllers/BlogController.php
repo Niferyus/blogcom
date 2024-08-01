@@ -56,25 +56,35 @@ class BlogController extends Controller
      **/
     public function createblog(Request $request){
         if($request->isMethod('post')){
-            $blog = new BlogModel;
-            $blog->title = $request->title;
-            // if (Str::length($blog->title) > 250) copy(0, 250)
-            $blog->text = $request->text;
-            $blog->writer = $request->writer;
-            $blog->categoryid = $request->categoryid;
 
+            $request->validate([
+                'title' => 'required|string|max:58|min:5',
+                'text' => 'required|string|min:100',
+                'writer' => 'required|string|max:20|min:2',
+                'categoryid' => 'required|integer',
+                'image' => 'required'
+            ]);
+
+            $imageName = null;
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $imageName = $image->getClientOriginalName(); 
                 $image->move(public_path('assets/images'), $imageName); 
-                $blog->image = $imageName;
             }
 
-            $blog->save();
-            return redirect('admin-panel/admin-blogs-list');
+            $blog = BlogModel::create(
+                [
+                    'title' => $request->title,
+                    'text' => $request->text,
+                    'writer' => $request->writer,
+                    'categoryid' => $request->categoryid,
+                    'image' => $imageName,
+                ]
+                );
+            return redirect('admin-panel/admin-blogs-list')->with('success', 'Kayıt başarıyla oluşturuldu!');            
         }
         else{
-            abort(404);
+            return redirect('admin-panel/admin-about-list')->with('error', 'Kayıt oluşturulamadı');
         }
     }
     
