@@ -142,6 +142,15 @@ class BlogController extends Controller
     public function updateblog(Request $request){
         $blog = BlogModel::where("id", $request->id)->first();
         if($request->isMethod('post')){
+            
+            $request->validate([
+                'title' => 'required|string|max:58|min:5',
+                'text' => 'required|string|min:100',
+                'writer' => 'required|string|max:20|min:2',
+                'categoryid' => 'required|integer',
+                'image' => 'required'
+            ]);
+
             $blog->title = $request->title;
             $blog->text = $request->text;
             $blog->writer = $request->writer;

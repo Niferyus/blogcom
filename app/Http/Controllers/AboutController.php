@@ -60,6 +60,7 @@ class AboutController extends Controller
     public function aboutedit($id){
       $info = AboutModel::where("id",$id)
                                   ->first();
+                                                             
       if($info != null){
         return view("Admin/admin-about-edit")->with("info",$info);
       }
@@ -140,7 +141,17 @@ class AboutController extends Controller
       $about = AboutModel::where("id",$request->id)
                                           ->first();
       if($request->isMethod('post') || $about != null){
-        $about->abouttext = $request->abouttext;
+        
+        $request->validate([
+          'abouttext' => 'required|string',
+          'aboutimg' => 'required' 
+        ]);
+
+
+        if ($about->abouttext != $request->abouttext && $request->abouttext != null) {
+            $about->abouttext = $request->abouttext;
+        }
+        
         $about->aboutimg = $request->aboutimg;
 
         if ($request->hasFile('aboutimg')) {

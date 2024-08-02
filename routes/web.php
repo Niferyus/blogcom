@@ -28,6 +28,8 @@ Route::get('/contact',[ContactController::class,'getContactInfo']);
 
 Route::get('/blog-details/{id}',[BlogController::class, 'getblogdetails'])->name('blog-details-route');
 
+Route::post('/contact',[ContactController::class,'createmessage']);
+
 Route::group(['prefix' => '/admin-panel'], function(){
 
     Route::get('',function(){
@@ -83,5 +85,11 @@ Route::group(['prefix' => '/admin-panel'], function(){
     Route::get('/admin-contact-create',[ContactController::class,'getcontactcreate']);
 
     Route::post('/admin-contact-create',[ContactController::class,'createcontact']);
+
+    Route::get('/admin-message-list',[ContactController::class,'listmessage']);
+
+    Route::delete('/admin-message-list/{id}',[ContactController::class,'deletemessage'])->name('message-delete');
+
+    Route::get('/admin-message-read/{id}',[ContactController::class,'readmessage'])->name('message-read');
 });
 

@@ -7,7 +7,7 @@
   <div class="container">
     <div class="form-group">
         <label for="abouttext" class="form-label">Hakkında Metin</label>
-        <textarea name="abouttext" id="abouttext" class="form-control ckeditor" minlength="100" cols="30" rows="10" required>{!! $info->abouttext !!}</textarea>
+        <textarea name="abouttext" id="abouttext" class="form-control ckeditor" minlength="100" cols="30" rows="10" required>{{ $info->abouttext }}</textarea>
     </div>
     <div class="input-group">
       <label for="inputGroupFile04" class="form-label">Hakkında Resim</label>
@@ -37,10 +37,10 @@ Yeni eklenen resmi kontrol etmek için butona basınız.
     const aboutimage = document.getElementById('aboutimg').value.trim();
     const aboutText = CKEDITOR.instances.abouttext.getData().trim();
 
-    if (!aboutText) {
-            alert('Lütfen hakkında metni girin.');
-            return false;
-    }
+    // if (!aboutText) {
+    //         alert('Lütfen hakkında metni girin.');
+    //         return false;
+    // }
 
     if(!aboutimage){
       alert("Lütfen resim seçiniz");

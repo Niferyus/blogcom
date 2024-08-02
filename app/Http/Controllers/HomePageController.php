@@ -131,6 +131,13 @@ class HomePageController extends Controller
         ->first();
         
         if($request->isMethod("post") && $info != null){
+
+            $request->validate([
+                'title' => 'required|string|min:3',
+                'text' => 'required|string|min:5',
+                'image' => 'required',
+            ]);
+
             $info->title = $request->title;
             $info->text = $request->text;
             
