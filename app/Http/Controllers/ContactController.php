@@ -47,7 +47,7 @@ class ContactController extends Controller
     }
 
     /**
-     * Aldığı idye ait kaydı bulur null olup olmadığını kontrol edip siler 
+     * Aldığı id-ye ait kaydı bulur null olup olmadığını kontrol edip siler 
      *  
      *
      * @param id

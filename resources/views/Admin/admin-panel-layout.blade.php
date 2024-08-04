@@ -49,6 +49,9 @@
           <li class="nav-item">
             <a href="/admin-panel/admin-message-list" class="nav-link" role="button" aria-expanded="false">Mesajlar</a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('logout') }}" class="nav-link" role="button" aria-expanded="false">Çıkış Yap</a>
+          </li>
         </ul>
         <hr>
       </div>

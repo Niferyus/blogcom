@@ -9,6 +9,8 @@ use App\Models\AboutModel;
 
 class AboutController extends Controller
 {
+
+
     /**
      * Sayfada göstermek için about modelindeki son eklenen kaydı alır 
      * null kontrolü yapar about viewına gönderir 

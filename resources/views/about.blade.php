@@ -5,6 +5,7 @@
 <div style="display:block; background-color: bisque; padding: 20px; text-align: center;">
   <h1 style="font-size: 2.5rem; margin: 0;">Hakkımızda</h1>
 </div>
+
 <section class="about-us" style="margin-top: 20px; padding: 20px;">
   <div class="container">
     <div class="row">
@@ -17,6 +18,7 @@
     </div>
   </div>
 </section>
+
 
 
 @endsection

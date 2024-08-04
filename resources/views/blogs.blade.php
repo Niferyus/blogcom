@@ -7,11 +7,6 @@
   </div>
 </div>
 
-<form class="d-flex justify-content-center" role="search" style="width: 50%">
-  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-  <button class="btn btn-outline-success" type="submit">Search</button>
-</form>
-
 <div class="container mt-4">
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     @foreach ($blogsarray as $blog)

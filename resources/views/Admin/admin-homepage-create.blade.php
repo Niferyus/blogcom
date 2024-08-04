@@ -7,7 +7,7 @@
     <div class="container">
       <div class="form-group">
           <label for="title" class="form-label">Başlık</label>
-          <input name="title" id="title" class="form-control" maxlength="20" minlength="5" required></input>
+          <input name="title" id="title" class="form-control" maxlength="30" minlength="5" required></input>
       </div>
         <div class="form-group">
             <label for="text" class="form-label">Metin</label>

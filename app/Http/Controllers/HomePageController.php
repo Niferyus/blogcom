@@ -56,8 +56,8 @@ class HomePageController extends Controller
         if($request->isMethod('post')){
 
             $request->validate([
-                'title' => 'required|string|min:3',
-                'text' => 'required|string|min:5',
+                'title' => 'required|string',
+                'text' => 'required|string',
                 'image' => 'required',
             ]);
 
@@ -133,8 +133,8 @@ class HomePageController extends Controller
         if($request->isMethod("post") && $info != null){
 
             $request->validate([
-                'title' => 'required|string|min:3',
-                'text' => 'required|string|min:5',
+                'title' => 'required|string',
+                'text' => 'required|string',
                 'image' => 'required',
             ]);
 

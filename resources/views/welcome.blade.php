@@ -3,9 +3,9 @@
 @section('content')
 
 <div style="background-color: bisque; padding: 20px; text-align: center;">
- <h1 style="font-size: 2.5rem;">{{ $info->title }}</h1>
-  <p style="font-size: 1.5rem;">{!! $info->text !!}</p>
-  <img src="assets/images/{{$info->image}}" alt="Banner" style="width: 100%; margin-top: 20px;">
+ <h1 style="font-size: 2.5rem;">{{ $info != null ? $info->title : "BlogcuFurkan"}}</h1>
+  <p style="font-size: 1.5rem;">{{ $info != null ? $info->text : "Hoşgeldin"}}</p>
+  <img src="assets/images/"{{ $info != null ? $info->image : "aa.jpg"}} alt="Banner" style="width: 100%; margin-top: 20px;">
 </div>
 
 <div class="container mt-5">
