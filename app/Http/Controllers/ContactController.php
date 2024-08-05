@@ -164,24 +164,25 @@ class ContactController extends Controller
     }
 
     public function createmessage(Request $request){
-        if($request->isMethod('post') && $request->total == $request->totalclient){
-
-             $request->validate([
-                 'name'=>'required|string',
-                 'mail' => 'required|email',
-                 'topic' => 'required|string',
-                 'message' => 'required'
-             ]);
-
-            $message = MessageModel::create(
-            [
-                'name'=>$request->name,
-                'mail'=>$request->mail,
-                'topic'=>$request->topic,
-                'message'=>$request->message,
-            ]
-            );
-            return redirect('contact')->with('success','Mesajınız gönderildi');
+        if($request->isMethod('post')){
+            if($request->number1 + $request->number2 == $request->totalclient){
+                $request->validate([
+                    'name'=>'required|string',
+                    'mail' => 'required|email',
+                    'topic' => 'required|string',
+                    'message' => 'required'
+                ]);
+   
+               $message = MessageModel::create(
+               [
+                   'name'=>$request->name,
+                   'mail'=>$request->mail,
+                   'topic'=>$request->topic,
+                   'message'=>$request->message,
+               ]
+               );
+               return redirect('contact')->with('success','Mesajınız gönderildi');
+            }
         }
         return redirect('contact')->with('error','Mesajınız gönderilemedi');
     }
@@ -214,23 +215,6 @@ class ContactController extends Controller
             abort(404);
         }
     }
-
-    /**
-     * undocumented function summary
-     *
-     * Undocumented function long description
-     *
-     * @param Type $var Description
-     * @return type
-     * @throws conditon
-     **/
-    public function createnumber()
-    {   
-        $number1 = random_int(0,99);
-        $number2 = random_int(0,99);
-        $total = $number1 + $number2;
-        
-        return $total; 
-        // view("contact")->with("number1",$number1)->with("number2",$number2)->with("total",$total);
-    }
 }
+
+

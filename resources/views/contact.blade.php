@@ -60,7 +60,8 @@
                             <input class="form-control" name="totalclient" type="number" id="totalclient" placeholder="{{ "$number1 + $number2 = ? "}}" style="border-radius: 5px;">
                           </fieldset>
                         </div>
-                        <input type="hidden" name="total" id="total" value="{{ $number1+$number2 }}">
+                        <input type="hidden" name="number1" id="number1" value="{{ $number1 }}">
+                        <input type="hidden" name="number2" id="number2" value="{{ $number2 }}">
                         <div class="col-lg-12">
                           <fieldset style="margin-bottom: 1rem;">
                             <button type="submit" id="form-submit" class="main-button" style="background-color: #007bff; color: #fff; border: none; border-radius: 5px; padding: 10px 20px;">Mesajı Gönder</button>

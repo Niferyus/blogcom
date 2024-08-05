@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" disabled name="message" id="message" cols="100" rows="10">{{ $message->message }}</textarea>
+                <textarea class="form-control" disabled name="message" id="message" cols="200" rows="20">{{ $message->message }}</textarea>
             </div>
         </div>
     </div>

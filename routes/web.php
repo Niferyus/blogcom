@@ -17,6 +17,9 @@ Route::get('/contact', [ContactController::class, 'getContactInfo']);
 
 Route::get('/blog-details/{id}', [BlogController::class, 'getblogdetails'])->name('blog-details-route');
 
+Route::get('/api/blog', [BlogController::class, 'apiBlog']);
+Route::get('/api/blog-detail/{id}', [BlogController::class, 'apiBlogDetail']);
+
 Route::post('/contact', [ContactController::class, 'createmessage']);
 
 Route::get('/admin-login', [LoginController::class, 'getloginscreen'])->name('admin-login');
